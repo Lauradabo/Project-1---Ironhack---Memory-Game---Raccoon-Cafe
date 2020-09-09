@@ -32,11 +32,11 @@ export class MemoryCards {
         }
     }
 
-    gameOver() {
-        if (this.pairsWon == 0 || this.pairsWon !== this.cards.length / 2) {
-            return false;
-          } else {
-            return true;
-          }
-    }
+    // gameOver() {
+    //     if (this.pairsWon == 0 || this.pairsWon !== this.cards.length / 2) {
+    //         return false;
+    //       } else {
+    //         return true;
+    //       }
+    // }
 }

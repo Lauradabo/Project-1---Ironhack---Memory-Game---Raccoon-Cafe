@@ -42,10 +42,36 @@ h1 {
   text-transform: uppercase;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px yellow,
     0 0 80px yellow, 0 0 90px yellow, 0 0 100px yellow, 0 0 150px yellow;
+    -webkit-animation: blink-1 0.6s 3 both;
+	        animation: blink-1 0.6s 3 both;
   /* -webkit-animation: glow 2s ease-in-out infinite alternate;
   -moz-animation: glow 2s ease-in-out infinite alternate;
   animation: glow 2s ease-in-out infinite alternate; */
 }
+
+@-webkit-keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+@keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
 
 /* @-webkit-keyframes glow {
   from {
@@ -86,11 +112,12 @@ h3 {
   width: 190px;
   height: 240px;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 10px;
+  
 }
 
 #score h2 {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-size: 1.8em;
 }
 
@@ -113,21 +140,21 @@ h3 {
   margin-top: -270px;
   margin-right: 40px;
 }
-
-#start {
+/* 
+#restart {
   margin-top: 20px;
   padding: 10px 15px 10px 15px;
   border-radius: 30px;
   background-color: white;
   color: black;
-  font-size: 1rem;
+  font-size: 0.8rem;
   position: absolute;
   top: 190px;
-  left: 50px;
+  left: 40px;
   font-family: "Roboto", sans-serif;
   letter-spacing: 2px;
   z-index: 1;
-}
+} */
 
 /* Main board */
 #board {
@@ -150,6 +177,8 @@ h3 {
   position: relative;
   transform: scale(1);
 }
+
+
 /* transoform-style : sets whether children of an element are positioned in the 3D space or are flattened in the plane of the element.*/
 /* perspective : determines the distance between the z=0 plane and the user in order to give a 3D-positioned element some perspective.*/
 
@@ -238,7 +267,7 @@ h3 {
   padding: 10px 15px 10px 15px;
   border-radius: 30px;
   margin : 20px 10px;
-  
+
 }
 
 /* POP-UP DE FIN - YOU LOSE */

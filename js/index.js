@@ -46,6 +46,7 @@ function stopTimer() {
 }
 
 
+
 //function to block/unblock the cards with toggle : 
 function blockCards() {
     function toggleBlockCSS(card) {
@@ -110,24 +111,27 @@ function resetCounters() {
     wonElement.textContent = 0;
 }
 
-//reset Timer
-// function resetTimer () {
-//    if (intervalId !== undefined)
-//    clearInterval(intervalId);
-// }
 
 //function to start the game and shuffle the cards : 
 function start() {
     memoryCards.shuffleCards(cards);
     drawCards();
+    
 }
 start();
 
+
 function reStart(){
-    memoryCards.shuffleCards(cards);
-    drawCards();
+    start();
     resetCounters();
+    resetCards();
+// document.location.href = "";
 }
+
+
+// const reStartBtn = document.getElementById("restart");
+
+// reStartBtn.onclick = ()=> reStart();
 
 //add event listener with all the actions happening on a click : 
 allCards.forEach(card => {
@@ -159,7 +163,7 @@ allCards.forEach(card => {
                     flipCards();
                     // 2 - count picked cards and add +1
                     incrementPickedCards();
-                    // 3 - reset card1 er card2
+                    // 3 - reset card1 and card2
                     resetCards();
                 }, blockingTime);
             }
@@ -199,7 +203,7 @@ function youLosePopUp() {
     const popUps = document.getElementById("popUps");
     popUps.appendChild(losingPopUp);
 
-    losingPopUp.querySelector('.replay').onclick = ()=> removePopUp(losingPopUp); reStart();
+    losingPopUp.querySelector('.replay').onclick = ()=> removePopUp(losingPopUp);
 
 }
 
@@ -207,5 +211,3 @@ function youLosePopUp() {
 function removePopUp(popUp) {
     popUp.remove();
 }
-
-// SOUND EFFECTS : 
