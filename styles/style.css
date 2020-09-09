@@ -1,0 +1,290 @@
+@import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:900);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url("../img/brick-wall-3.jpg") no-repeat;
+  background-size: cover;
+  font-family: "Exo 2", sans-serif;
+}
+
+/* Header / title */
+
+#maenkun-logo {
+  max-width: 350px;
+  height : auto;
+  border-radius: 15px;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff,
+    0 0 80px yellow, 0 0 90px yellow, 0 0 100px yellow, 0 0 150px yellow;
+}
+
+.header {
+  display: flex;
+  margin-top: 80px;
+  margin-left: 90px;
+  margin-bottom: 70px;
+  width: 70%;
+  height : auto;
+  position: relative;
+}
+
+h1 {
+  padding-left: 120px;
+  padding-top: 20px;
+  font-size: 3.5em;
+  color: white;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px yellow,
+    0 0 80px yellow, 0 0 90px yellow, 0 0 100px yellow, 0 0 150px yellow;
+  /* -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate; */
+}
+
+/* @-webkit-keyframes glow {
+  from {
+    color: #fff;
+    text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow,
+      0 0 40px yellow, 0 0 50px yellow, 0 0 60px yellow, 0 0 70px yellow,
+      0 0 90px yellow;
+  }
+
+  to {
+    color: #fff;
+    text-shadow: 0 0 20px yellow, 0 0 30px yellow, 0 0 40px yellow,
+      0 0 50px yellow, 0 0 60px yellow, 0 0 70px yellow, 0 0 80px yellow,
+      0 1 90px yellow;
+  }
+} */
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  color: white;
+  font-size: 1.6em;
+  padding-top: 10px;
+  padding-left:90px;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px yellow,
+    0 0 80px yellow, 0 0 90px yellow, 0 0 100px yellow, 0 0 150px yellow;
+}
+
+/* Score Board */
+#score {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  width: 190px;
+  height: 240px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+#score h2 {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+#score p {
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+.clipboard img {
+  width: 200px;
+  height: auto;
+  position: absolute;
+  top: 0px;
+}
+
+.clipbd-ensemble {
+  position: relative;
+  padding-top: 35px;
+  float: right;
+  margin-top: -270px;
+  margin-right: 40px;
+}
+
+#start {
+  margin-top: 20px;
+  padding: 10px 15px 10px 15px;
+  border-radius: 30px;
+  background-color: white;
+  color: black;
+  font-size: 1rem;
+  position: absolute;
+  top: 190px;
+  left: 50px;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2px;
+  z-index: 1;
+}
+
+/* Main board */
+#board {
+  background: black;
+  width: 1300px;
+  height: 690px;
+  border-radius: 20px;
+  border: darkgrey solid 2px;
+  margin: 50px auto;
+  padding-top: 40px;
+  padding-left: 45px;
+}
+
+/* CARDS */
+
+.card {
+  display: inline-block;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  position: relative;
+  transform: scale(1);
+}
+/* transoform-style : sets whether children of an element are positioned in the 3D space or are flattened in the plane of the element.*/
+/* perspective : determines the distance between the z=0 plane and the user in order to give a 3D-positioned element some perspective.*/
+
+.card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.card.blocked {
+  pointer-events: none;
+}
+
+.card.turned .front {
+  transform: rotateY(0deg);
+}
+.card.turned .back {
+  transform: rotateY(180deg);
+}
+/* rotate the card when chosen*/
+
+.card .back,
+.card .front {
+  width: 110px;
+  height: 160px;
+  margin: 20px;
+  /* padding: 20px; */
+  /* font-size: 64px; */
+  border-radius: 5px;
+  transition: transform 0.6s;
+}
+
+.card .back {
+  border: grey solid 2px;
+  background-image: url("../img/card-back.png");
+  background-size: contain;
+  opacity: 0.8;
+}
+.card .front {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: rotateY(-180deg) translateZ(1px);
+  backface-visibility: hidden;
+}
+/* card in relative and front in absolute allows the stacking of back and front on top of each other*/
+
+
+/* POP-UP DE FIN -  YOU WIN */
+.pop-up.win {
+    width : 700px;
+    height : 600px;
+    background-color : white;
+    border : grey solid 3px;
+    border-radius : 15px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    position : absolute;
+    left : 25%;
+    top : 20%;
+    z-index : 2;
+    /* display : none; */
+}
+
+.pop-up.win h2 {
+   font-size : 3em;
+   margin-top : 30px;
+   letter-spacing: 2px;
+}
+
+.pop-up.win h4 {
+  font-size : 2em;
+  margin-top : 30px;
+}
+
+.pop-up.win img{
+  margin-right : 20px;
+}
+
+.pop-up.win button {
+  background-color: white;
+  color: black;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2px;
+  margin-top: 20px;
+  padding: 10px 15px 10px 15px;
+  border-radius: 30px;
+  margin : 20px 10px;
+  
+}
+
+/* POP-UP DE FIN - YOU LOSE */
+
+.pop-up.lose {
+  width : 700px;
+  height : 600px;
+  background-color : black;
+  color : white;
+  border : grey solid 3px;
+  border-radius : 15px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  position : absolute;
+  left : 25%;
+  top : 20%;
+  z-index :2;
+}
+
+.pop-up.lose img {
+  width : 250px;
+  height : auto;
+  margin-top : 30px;
+}
+
+.pop-up.lose h2 {
+  font-size : 3em;
+  margin-top : 40px;
+  letter-spacing: 2px;
+}
+
+.pop-up.lose h4{
+  font-size : 2em;
+  margin-top : 30px;
+}
+
+.pop-up.lose button {
+  background-color: white;
+  color: black;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2px;
+  margin-top: 20px;
+  padding: 10px 15px 10px 15px;
+  border-radius: 30px;
+  margin : 30px 20px;
+
+}
+
