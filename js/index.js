@@ -120,8 +120,8 @@ function introPopUp() {
     const introPopUp = document.createElement("div");
     introPopUp.innerHTML += `<div id="intro"><h2>Memory Game</h2><h5>기억력 게임</h5><p>Flip and match pairs of cards
     <br>under 2 minutes to win the game!</p><h5>화이팅 !</h5><button id="start">Let's play!</button></div>`;
-    const popUps = document.getElementById("popUps");
-    popUps.appendChild(introPopUp);
+    const board = document.getElementById("board");
+    board.appendChild(introPopUp);
 
     introPopUp.querySelector('#start').onclick = () => {
         removeIntroPopUp();
