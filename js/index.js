@@ -14,6 +14,7 @@ var card1 = null;
 var card2 = null;
 var blockingTime = 1000;
 
+   
 //TIMER : 
 const startingMinutes = 2;
 let time = startingMinutes * 60;
@@ -92,6 +93,7 @@ function drawCards() {
     });
     document.querySelector('#board').innerHTML = html;
     allCards = document.querySelectorAll('.card');
+
 }
 
 //function to flip the cards : 
@@ -116,7 +118,6 @@ function resetCounters() {
 function start() {
     memoryCards.shuffleCards(cards);
     drawCards();
-    
 }
 start();
 
@@ -153,6 +154,9 @@ allCards.forEach(card => {
             if (result) {
                 card1.style.pointerEvents = 'none';
                 card2.style.pointerEvents = 'none';
+                const dingSound = new Audio("../sound/ding.mp3");
+                dingSound.volume = 0.6;
+                dingSound.play();
                 incrementScore(); // if the cards match
                 resetCards();
                 youWin();

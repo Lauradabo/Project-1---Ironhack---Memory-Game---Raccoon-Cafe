@@ -14,10 +14,11 @@ body {
   font-family: "Exo 2", sans-serif;
 }
 
+
 /* Header / title */
 
 #maenkun-logo {
-  max-width: 350px;
+  max-width: 330px;
   height : auto;
   border-radius: 15px;
   box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff,
@@ -26,8 +27,8 @@ body {
 
 .header {
   display: flex;
-  margin-top: 80px;
-  margin-left: 90px;
+  margin-top: 50px;
+  margin-left: 150px;
   margin-bottom: 70px;
   width: 70%;
   height : auto;
@@ -37,13 +38,13 @@ body {
 h1 {
   padding-left: 120px;
   padding-top: 20px;
-  font-size: 3.5em;
+  font-size: 3em;
   color: white;
   text-transform: uppercase;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px yellow,
     0 0 80px yellow, 0 0 90px yellow, 0 0 100px yellow, 0 0 150px yellow;
-    -webkit-animation: blink-1 0.6s 3 both;
-	        animation: blink-1 0.6s 3 both;
+    -webkit-animation: blink-1 0.6s 5 both;
+	        animation: blink-1 0.6s 5 both;
   /* -webkit-animation: glow 2s ease-in-out infinite alternate;
   -moz-animation: glow 2s ease-in-out infinite alternate;
   animation: glow 2s ease-in-out infinite alternate; */
@@ -109,10 +110,10 @@ h3 {
   color: white;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 5px;
-  width: 190px;
-  height: 240px;
+  width: 170px;
+  height: 210px;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 30px;
   
 }
 
@@ -127,18 +128,18 @@ h3 {
 }
 
 .clipboard img {
-  width: 200px;
+  width: 170px;
   height: auto;
   position: absolute;
-  top: 0px;
+  top: 10px;
 }
 
 .clipbd-ensemble {
   position: relative;
   padding-top: 35px;
   float: right;
-  margin-top: -270px;
-  margin-right: 40px;
+  margin-top: -240px;
+  margin-right: 130px;
 }
 /* 
 #restart {
@@ -159,13 +160,13 @@ h3 {
 /* Main board */
 #board {
   background: black;
-  width: 1300px;
-  height: 690px;
+  width: 1000px;
+  height: 550px;
   border-radius: 20px;
   border: darkgrey solid 2px;
-  margin: 50px auto;
-  padding-top: 40px;
-  padding-left: 45px;
+  margin: 30px auto;
+  padding-top: 20px;
+  padding-left: 20px;
 }
 
 /* CARDS */
@@ -176,6 +177,32 @@ h3 {
   transform-style: preserve-3d;
   position: relative;
   transform: scale(1);
+  -webkit-animation: swirl-in-fwd 0.8s ease-out both;
+	        animation: swirl-in-fwd 0.8s ease-out both;
+}
+@-webkit-keyframes swirl-in-fwd {
+  0% {
+    -webkit-transform: rotate(-540deg) scale(0);
+            transform: rotate(-540deg) scale(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0) scale(1);
+            transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes swirl-in-fwd {
+  0% {
+    -webkit-transform: rotate(-540deg) scale(0);
+            transform: rotate(-540deg) scale(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0) scale(1);
+            transform: rotate(0) scale(1);
+    opacity: 1;
+  }
 }
 
 
@@ -201,9 +228,9 @@ h3 {
 
 .card .back,
 .card .front {
-  width: 110px;
-  height: 160px;
-  margin: 20px;
+  width: 100px;
+  height: 150px;
+  margin: 10px;
   /* padding: 20px; */
   /* font-size: 64px; */
   border-radius: 5px;
@@ -237,7 +264,7 @@ h3 {
     font-family: "Roboto", sans-serif;
     position : absolute;
     left : 25%;
-    top : 20%;
+    top : 10%;
     z-index : 2;
     /* display : none; */
 }
@@ -283,7 +310,7 @@ h3 {
   font-family: "Roboto", sans-serif;
   position : absolute;
   left : 25%;
-  top : 20%;
+  top : 10%;
   z-index :2;
 }
 
