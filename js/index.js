@@ -197,7 +197,7 @@ function listenCards() {
 
 function youWinPopUp() {
     const winningPopUp = document.createElement("div");
-    winningPopUp.innerHTML += `<div class="pop-up win"><h2>Well done!!</h2><h4>성공! 참 잘했어요!</h4><img src="../img/YouWin.jpg" alt="wining-raccoon"><br>
+    winningPopUp.innerHTML += `<div class="pop-up win"><h2>Well done!!</h2><h4>성공! 참 잘했어요!</h4><img src="./../img/YouWin.jpg" alt="wining-raccoon"><br>
     <button class="replay">Play Again</button></div>`;
     const popUps = document.getElementById("popUps");
     popUps.appendChild(winningPopUp);
@@ -218,7 +218,7 @@ function youWin() {
 //Loser Pop-up
 function youLosePopUp() {
     const losingPopUp = document.createElement("div");
-    losingPopUp.innerHTML += `<div class="pop-up lose"><h2>You lose!!</h2><h4>실패! 다시 한 번 도전해보세요!</h4><img src="../img/gifRaccoon.gif" alt="losing-raccoon"><br>
+    losingPopUp.innerHTML += `<div class="pop-up lose"><h2>You lose!!</h2><h4>실패! 다시 한 번 도전해보세요!</h4><img src="./../img/gifRaccoon.gif" alt="losing-raccoon"><br>
     <button class="replay">Play Again</button></div>`;
     const popUps = document.getElementById("popUps");
     popUps.appendChild(losingPopUp);
