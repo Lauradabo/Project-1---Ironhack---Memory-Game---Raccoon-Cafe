@@ -146,6 +146,7 @@ h3 {
   float: right;
   margin-top: -240px;
   margin-right: 130px;
+  z-index: 1;
 }
 
 /* Main board */
