@@ -14,7 +14,8 @@ var card1 = null;
 var card2 = null;
 var blockingTime = 1000;
 
-   
+const sound = new Audio("./../sound/neonLight.mp3");
+
 //TIMER : 
 const startingMinutes = 2;
 let time = startingMinutes * 60;
@@ -22,9 +23,17 @@ let intervalId;
 const timer = document.getElementById('timer');
 
 
+sound.oncanplay = (evt) => {
+    document.querySelector("#header h1").onmouseover = () => {
+        sound.play()
+    };
+};
+
+
+
 
 function startTimer() {
-
+    time--;
     intervalId = setInterval(function () {
         const minutes = Math.floor(time / 60);
         let seconds = time % 60;
@@ -105,88 +114,95 @@ function flipCards() {
     wooshSound.play();
 }
 
-//reset counters : 
-function resetCounters() {
-    let pickedElement = document.getElementById('pairs-picked');
-    pickedElement.textContent = 0;
-    let wonElement = document.getElementById('pairs-won');
-    wonElement.textContent = 0;
+
+// INTRO :
+function introPopUp() {
+    const introPopUp = document.createElement("div");
+    introPopUp.innerHTML += `<div id="intro"><h2>Memory Game</h2><h5>기억력 게임</h5><p>Flip and match pairs of cards
+    <br>under 2 minutes to win the game!</p><h5>화이팅 !</h5><button id="start">Let's play!</button></div>`;
+    const popUps = document.getElementById("popUps");
+    popUps.appendChild(introPopUp);
+
+    introPopUp.querySelector('#start').onclick = () => {
+        removeIntroPopUp();
+        start();
+    };
+
+
+    //remove Intro pop-ups :
+    function removeIntroPopUp() {
+        introPopUp.remove();
+    }
+
 }
+
+introPopUp();
 
 
 //function to start the game and shuffle the cards : 
 function start() {
     memoryCards.shuffleCards(cards);
     drawCards();
+    listenCards();
 }
-start();
-
-
-function reStart(){
-    start();
-    resetCounters();
-    resetCards();
-// document.location.href = "";
+// start();
+function reStart() {
+    window.location.reload();
 }
 
+function listenCards() {
+    //add event listener with all the actions happening on a click : 
+    allCards.forEach(card => {
+        card.addEventListener('click', () => {
+            if (intervalId == undefined)
+                startTimer();
+            card.classList.add('turned');
+            console.log(memoryCards.pairsWon);
+            if (!card1) card1 = card;
+            else card2 = card;
 
-// const reStartBtn = document.getElementById("restart");
+            if (card1 && card2) {
+                blockCards(); // block les cartes pendant blockingTime
 
-// reStartBtn.onclick = ()=> reStart();
+                let clickedCard1 = card1.getAttribute('data-card-name');
+                let clickedCard2 = card2.getAttribute('data-card-name');
+                var result = memoryCards.checkPairs(clickedCard1, clickedCard2);
 
-//add event listener with all the actions happening on a click : 
-allCards.forEach(card => {
-    card.addEventListener('click', () => {
-        if (intervalId == undefined) 
-        startTimer();
-        card.classList.add('turned');
-        console.log(memoryCards.pairsWon);
-        if (!card1) card1 = card;
-        else card2 = card;
-
-        if (card1 && card2) {
-            blockCards(); // block les cartes pendant blockingTime
-
-            let clickedCard1 = card1.getAttribute('data-card-name');
-            let clickedCard2 = card2.getAttribute('data-card-name');
-            var result = memoryCards.checkPairs(clickedCard1, clickedCard2);
-
-            if (result) {
-                card1.style.pointerEvents = 'none';
-                card2.style.pointerEvents = 'none';
-                const dingSound = new Audio("../sound/ding.mp3");
-                dingSound.volume = 0.6;
-                dingSound.play();
-                incrementScore(); // if the cards match
-                resetCards();
-                youWin();
-            } else {
-                // if the cards don't match
-                setTimeout(() => {
-                    // 1 - flip cards back in a delay of 1s
-                    flipCards();
-                    // 2 - count picked cards and add +1
-                    incrementPickedCards();
-                    // 3 - reset card1 and card2
+                if (result) {
+                    card1.style.pointerEvents = 'none';
+                    card2.style.pointerEvents = 'none';
+                    const dingSound = new Audio("../sound/ding.mp3");
+                    dingSound.volume = 0.6;
+                    dingSound.play();
+                    incrementScore(); // if the cards match
                     resetCards();
-                }, blockingTime);
+                    youWin();
+                } else {
+                    // if the cards don't match
+                    setTimeout(() => {
+                        // 1 - flip cards back in a delay of 1s
+                        flipCards();
+                        // 2 - count picked cards and add +1
+                        incrementPickedCards();
+                        // 3 - reset card1 and card2
+                        resetCards();
+                    }, blockingTime);
+                }
             }
-        }
-        console.log(`Card clicked: ${card}`);
+            console.log(`Card clicked: ${card}`);
+        });
     });
-});
-
+}
 //Winning Pop-UP :
 
 function youWinPopUp() {
     const winningPopUp = document.createElement("div");
     winningPopUp.innerHTML += `<div class="pop-up win"><h2>Well done!!</h2><h4>성공! 참 잘했어요!</h4><img src="../img/YouWin.jpg" alt="wining-raccoon"><br>
-<button class="replay">Play Again</button></div>`;
+    <button class="replay">Play Again</button></div>`;
     const popUps = document.getElementById("popUps");
     popUps.appendChild(winningPopUp);
 
-    winningPopUp.querySelector('.replay').onclick = ()=> removePopUp(winningPopUp); reStart();
-
+    winningPopUp.querySelector('.replay').onclick = reStart;
 }
 
 
@@ -207,11 +223,5 @@ function youLosePopUp() {
     const popUps = document.getElementById("popUps");
     popUps.appendChild(losingPopUp);
 
-    losingPopUp.querySelector('.replay').onclick = ()=> removePopUp(losingPopUp);
-
-}
-
-//remove pop-ups :
-function removePopUp(popUp) {
-    popUp.remove();
+    losingPopUp.querySelector('.replay').onclick = reStart;
 }

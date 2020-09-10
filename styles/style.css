@@ -45,9 +45,6 @@ h1 {
     0 0 80px yellow, 0 0 90px yellow, 0 0 100px yellow, 0 0 150px yellow;
     -webkit-animation: blink-1 0.6s 5 both;
 	        animation: blink-1 0.6s 5 both;
-  /* -webkit-animation: glow 2s ease-in-out infinite alternate;
-  -moz-animation: glow 2s ease-in-out infinite alternate;
-  animation: glow 2s ease-in-out infinite alternate; */
 }
 
 @-webkit-keyframes blink-1 {
@@ -73,22 +70,33 @@ h1 {
   }
 }
 
+.titles:hover {
+  -webkit-animation: blink-1 0.6s 5 both;
+  animation: blink-1 0.6s 5 both;
+}
 
-/* @-webkit-keyframes glow {
-  from {
-    color: #fff;
-    text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow,
-      0 0 40px yellow, 0 0 50px yellow, 0 0 60px yellow, 0 0 70px yellow,
-      0 0 90px yellow;
+@-webkit-keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
   }
-
-  to {
-    color: #fff;
-    text-shadow: 0 0 20px yellow, 0 0 30px yellow, 0 0 40px yellow,
-      0 0 50px yellow, 0 0 60px yellow, 0 0 70px yellow, 0 0 80px yellow,
-      0 1 90px yellow;
+  25%,
+  75% {
+    opacity: 0;
   }
-} */
+}
+@keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
 
 .titles {
   display: flex;
@@ -141,21 +149,6 @@ h3 {
   margin-top: -240px;
   margin-right: 130px;
 }
-/* 
-#restart {
-  margin-top: 20px;
-  padding: 10px 15px 10px 15px;
-  border-radius: 30px;
-  background-color: white;
-  color: black;
-  font-size: 0.8rem;
-  position: absolute;
-  top: 190px;
-  left: 40px;
-  font-family: "Roboto", sans-serif;
-  letter-spacing: 2px;
-  z-index: 1;
-} */
 
 /* Main board */
 #board {
@@ -205,10 +198,6 @@ h3 {
   }
 }
 
-
-/* transoform-style : sets whether children of an element are positioned in the 3D space or are flattened in the plane of the element.*/
-/* perspective : determines the distance between the z=0 plane and the user in order to give a 3D-positioned element some perspective.*/
-
 .card:active {
   transform: scale(0.97);
   transition: transform 0.2s;
@@ -224,15 +213,13 @@ h3 {
 .card.turned .back {
   transform: rotateY(180deg);
 }
-/* rotate the card when chosen*/
+
 
 .card .back,
 .card .front {
   width: 100px;
-  height: 150px;
+  height: 145px;
   margin: 10px;
-  /* padding: 20px; */
-  /* font-size: 64px; */
   border-radius: 5px;
   transition: transform 0.6s;
 }
@@ -250,8 +237,6 @@ h3 {
   transform: rotateY(-180deg) translateZ(1px);
   backface-visibility: hidden;
 }
-/* card in relative and front in absolute allows the stacking of back and front on top of each other*/
-
 
 /* POP-UP DE FIN -  YOU WIN */
 .pop-up.win {
@@ -342,5 +327,50 @@ h3 {
   border-radius: 30px;
   margin : 30px 20px;
 
+}
+
+/* INTRO */
+
+#intro {
+ background-color : black; 
+ color : white;
+ width : 700px;
+ height : 450px;
+ display : flex;
+ flex-direction: column;
+ align-items: center;
+ position : absolute;
+ left : 25%;
+ top : 38%;
+ z-index : 2;
+}
+
+#intro h2 {
+   font-size : 4em;
+   margin : 20px; 
+}
+
+#intro h5 {
+  font-size : 2em;
+  margin : 10px; 
+}
+
+#intro p {
+  font-size : 1.8em;
+  font-family: "Roboto", sans-serif;
+  text-align : center;
+  margin : 10px; 
+}
+
+
+#start {
+  padding: 10px 15px 10px 15px;
+  border-radius: 30px;
+  background-color: white;
+  color: black;
+  font-size: 0.8rem;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2px;
+  margin : 20px; 
 }
 
