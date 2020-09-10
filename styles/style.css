@@ -14,12 +14,11 @@ body {
   font-family: "Exo 2", sans-serif;
 }
 
-
 /* Header / title */
 
 #maenkun-logo {
   max-width: 330px;
-  height : auto;
+  height: auto;
   border-radius: 15px;
   box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff,
     0 0 80px yellow, 0 0 90px yellow, 0 0 100px yellow, 0 0 150px yellow;
@@ -31,7 +30,7 @@ body {
   margin-left: 150px;
   margin-bottom: 70px;
   width: 70%;
-  height : auto;
+  height: auto;
   position: relative;
 }
 
@@ -43,8 +42,8 @@ h1 {
   text-transform: uppercase;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px yellow,
     0 0 80px yellow, 0 0 90px yellow, 0 0 100px yellow, 0 0 150px yellow;
-    -webkit-animation: blink-1 0.6s 5 both;
-	        animation: blink-1 0.6s 5 both;
+  -webkit-animation: blink-1 0.6s 5 both;
+  animation: blink-1 0.6s 5 both;
 }
 
 @-webkit-keyframes blink-1 {
@@ -108,7 +107,7 @@ h3 {
   color: white;
   font-size: 1.6em;
   padding-top: 10px;
-  padding-left:90px;
+  padding-left: 90px;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px yellow,
     0 0 80px yellow, 0 0 90px yellow, 0 0 100px yellow, 0 0 150px yellow;
 }
@@ -122,7 +121,6 @@ h3 {
   height: 210px;
   text-align: center;
   padding-top: 30px;
-  
 }
 
 #score h2 {
@@ -171,29 +169,29 @@ h3 {
   position: relative;
   transform: scale(1);
   -webkit-animation: swirl-in-fwd 0.8s ease-out both;
-	        animation: swirl-in-fwd 0.8s ease-out both;
+  animation: swirl-in-fwd 0.8s ease-out both;
 }
 @-webkit-keyframes swirl-in-fwd {
   0% {
     -webkit-transform: rotate(-540deg) scale(0);
-            transform: rotate(-540deg) scale(0);
+    transform: rotate(-540deg) scale(0);
     opacity: 0;
   }
   100% {
     -webkit-transform: rotate(0) scale(1);
-            transform: rotate(0) scale(1);
+    transform: rotate(0) scale(1);
     opacity: 1;
   }
 }
 @keyframes swirl-in-fwd {
   0% {
     -webkit-transform: rotate(-540deg) scale(0);
-            transform: rotate(-540deg) scale(0);
+    transform: rotate(-540deg) scale(0);
     opacity: 0;
   }
   100% {
     -webkit-transform: rotate(0) scale(1);
-            transform: rotate(0) scale(1);
+    transform: rotate(0) scale(1);
     opacity: 1;
   }
 }
@@ -213,7 +211,6 @@ h3 {
 .card.turned .back {
   transform: rotateY(180deg);
 }
-
 
 .card .back,
 .card .front {
@@ -240,33 +237,33 @@ h3 {
 
 /* POP-UP DE FIN -  YOU WIN */
 .pop-up.win {
-    width : 700px;
-    height : 600px;
-    background-color : white;
-    border : grey solid 3px;
-    border-radius : 15px;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    position : absolute;
-    left : 25%;
-    top : 10%;
-    z-index : 2;
-    /* display : none; */
+  width: 700px;
+  height: 600px;
+  background-color: white;
+  border: grey solid 3px;
+  border-radius: 15px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+  left: 25%;
+  top: 10%;
+  z-index: 2;
+  /* display : none; */
 }
 
 .pop-up.win h2 {
-   font-size : 3em;
-   margin-top : 30px;
-   letter-spacing: 2px;
+  font-size: 3em;
+  margin-top: 30px;
+  letter-spacing: 2px;
 }
 
 .pop-up.win h4 {
-  font-size : 2em;
-  margin-top : 30px;
+  font-size: 2em;
+  margin-top: 30px;
 }
 
-.pop-up.win img{
-  margin-right : 20px;
+.pop-up.win img {
+  margin-right: 20px;
 }
 
 .pop-up.win button {
@@ -278,42 +275,41 @@ h3 {
   margin-top: 20px;
   padding: 10px 15px 10px 15px;
   border-radius: 30px;
-  margin : 20px 10px;
-
+  margin: 20px 10px;
 }
 
 /* POP-UP DE FIN - YOU LOSE */
 
 .pop-up.lose {
-  width : 700px;
-  height : 600px;
-  background-color : black;
-  color : white;
-  border : grey solid 3px;
-  border-radius : 15px;
+  width: 700px;
+  height: 600px;
+  background-color: black;
+  color: white;
+  border: grey solid 3px;
+  border-radius: 15px;
   text-align: center;
   font-family: "Roboto", sans-serif;
-  position : absolute;
-  left : 25%;
-  top : 10%;
-  z-index :2;
+  position: absolute;
+  left: 25%;
+  top: 10%;
+  z-index: 2;
 }
 
 .pop-up.lose img {
-  width : 250px;
-  height : auto;
-  margin-top : 30px;
+  width: 250px;
+  height: auto;
+  margin-top: 30px;
 }
 
 .pop-up.lose h2 {
-  font-size : 3em;
-  margin-top : 40px;
+  font-size: 3em;
+  margin-top: 40px;
   letter-spacing: 2px;
 }
 
-.pop-up.lose h4{
-  font-size : 2em;
-  margin-top : 30px;
+.pop-up.lose h4 {
+  font-size: 2em;
+  margin-top: 30px;
 }
 
 .pop-up.lose button {
@@ -325,43 +321,41 @@ h3 {
   margin-top: 20px;
   padding: 10px 15px 10px 15px;
   border-radius: 30px;
-  margin : 30px 20px;
-
+  margin: 30px 20px;
 }
 
 /* INTRO */
 
 #intro {
- background-color : black; 
- color : white;
- width : 700px;
- height : 450px;
- display : flex;
- flex-direction: column;
- align-items: center;
- position : absolute;
- left : 25%;
- top : 38%;
- z-index : 2;
+  background-color: black;
+  color: white;
+  width: 700px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 25%;
+  top: 38%;
+  z-index: 2;
 }
 
 #intro h2 {
-   font-size : 4em;
-   margin : 20px; 
+  font-size: 4em;
+  margin: 20px;
 }
 
 #intro h5 {
-  font-size : 2em;
-  margin : 10px; 
+  font-size: 2em;
+  margin: 10px;
 }
 
 #intro p {
-  font-size : 1.8em;
+  font-size: 1.8em;
   font-family: "Roboto", sans-serif;
-  text-align : center;
-  margin : 10px; 
+  text-align: center;
+  margin: 10px;
 }
-
 
 #start {
   padding: 10px 15px 10px 15px;
@@ -371,6 +365,5 @@ h3 {
   font-size: 0.8rem;
   font-family: "Roboto", sans-serif;
   letter-spacing: 2px;
-  margin : 20px; 
+  margin: 20px;
 }
-

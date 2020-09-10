@@ -25,7 +25,7 @@ const timer = document.getElementById('timer');
 
 sound.oncanplay = (evt) => {
     document.querySelector("#header h1").onmouseover = () => {
-        sound.play()
+        sound.play();
     };
 };
 
