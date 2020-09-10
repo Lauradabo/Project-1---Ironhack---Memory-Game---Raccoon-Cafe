@@ -14,7 +14,7 @@ var card1 = null;
 var card2 = null;
 var blockingTime = 1000;
 
-const sound = new Audio("./../sound/neonLight.mp3");
+const sound = new Audio("./sound/neonLight.mp3");
 
 //TIMER : 
 const startingMinutes = 2;
@@ -109,7 +109,7 @@ function drawCards() {
 function flipCards() {
     card1.classList.remove("turned");
     card2.classList.remove("turned");
-    const wooshSound = new Audio("../sound/wooshSound.mp3");
+    const wooshSound = new Audio("./sound/wooshSound.mp3");
     wooshSound.volume = 0.6;
     wooshSound.play();
 }
@@ -171,7 +171,7 @@ function listenCards() {
                 if (result) {
                     card1.style.pointerEvents = 'none';
                     card2.style.pointerEvents = 'none';
-                    const dingSound = new Audio("../sound/ding.mp3");
+                    const dingSound = new Audio("./sound/ding.mp3");
                     dingSound.volume = 0.6;
                     dingSound.play();
                     incrementScore(); // if the cards match
